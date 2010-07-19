@@ -1,27 +1,39 @@
 = General =
 Developers today need to depend heavily on concurrent programming, asynchronous and distributed systems to allow for scalability and performance. A typical example is a message based system that perform various tasks after having interpreted a message and its payload. It may write to an event log, update database state, send additional messages to remote systems etc, possibly everything in an asynchronous manner. These kind of systems are not always easy to test. For example you may want to verify that when an ADD_USER message is sent to a system a new user is persisted into a database. If something unexpected happens such as an exception being thrown in any thread you'd still like your test to fail indicating this error. Awaitility let's you test these systems easily.
 
-== Usage examples ==
+= Usage examples =
 
-===Example 1===
-Wait at most 5 seconds until customer status has been updated:
- 
+==Simple example==
+So let's assume that we send a "ADD_USER" message to our asynchronous system like this:
+
 {{{
-await().atMost(5, SECONDS).until(customerStatusHasUpdated());
+publish(new AddUserMessage("Awaitility Rocks"));
 }}}
 
-where `customerStatusHasUpdated()` may be defined as:
+In your test case Awaitility can help you to easily verify that the database has been updated. In its simplest form it may look something like this:
+
 {{{
-private Callable<Boolean> customerStatusHasUpdated() {
+await().until(newUserWasAdded());
+}}}
+
+`newUserWasAdded` is a method that you implement yourself in your test case. It specifies the condition that must be fulfilled in order for Awaitility to stop waiting.
+
+{{{
+private Callable<Boolean> newUserWasAdded() {
 	return new Callable<Boolean>() {
 		public Boolean call() throws Exception {
-                        Customer c = ... // Get the customer from a e.g. database
-			return c.getStatus() == Status.UPDATED; // The condition that must be fulfilled for the await statement exit.
+			return userRepository.size() == 1; // The condition that must be fulfilled
 		}
 	};
 }
-
 }}}
+
+By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a <code>TimeoutException</code> failing the test. If you want a different timeout you can define it like this:
+
+{{{
+await().atMost(5, SECONDS).until(newUserWasAdded());
+}}}
+
 ===Example 2===
 Wait forever until the call to `orderService.orderCount()` is greater than 3.
 {{{
