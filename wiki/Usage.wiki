@@ -34,10 +34,36 @@ By default Awaitility will wait for 10 seconds and if the size of the user respo
 await().atMost(5, SECONDS).until(newUserWasAdded());
 }}}
 
-===Example 2===
-Wait forever until the call to `orderService.orderCount()` is greater than 3.
+== Example 2- Better resuse==
+
+Awaitility also supports splitting up the condition into a supplying and a matching part for better reuse. The example above can also be written as:
+
 {{{
-await().forever().until(callTo(orderService).orderCount(), greaterThan(3));
+await().until( userRepositorySize(), equalTo(1) );
+}}}
+
+The `userRepositorySize` method is now a `Callable` of type `Integer`:
+{{{
+private Callable<Integer> userRepositorySize() {
+	return new Callable<Integer>() {
+		public Integer call() throws Exception {
+			return userRepository.size(); // The condition supplier part
+		}
+	};
+}
+}}}
+
+`equalTo` is a standard <a href="http://code.google.com/p/hamcrest/">Hamcrest</a> matcher specifiying the matching part of the condition for Awaitility.
+
+Now we could reuse the `userRepositorySize` in a different test. E.g. let's say we have a test that adds three users at the same time:
+
+{{{
+publish(new AddUserMessage("User 1"), new AddUserMessage("User 2"), new AddUserMessage("User 3"));
+}}}
+
+We now reuse the `userRepositorySize` supplier and simply update the Hamcrest matcher:
+{{{
+await().until( userRepositorySize(), equalTo(3) );
 }}}
 
 ===Example 3===
@@ -48,7 +74,7 @@ withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).a
 }}}  
 
 
-== Defaults ==
+= Defaults =
 If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a <code>TimeoutException</code> if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
 {{{
@@ -69,7 +95,7 @@ It may also be useful to import these methods:
   # `org.junit.Assert.*`
 
 
-== Polling == 
+= Polling = 
 Awaitility starts to check the specified condition (the one you create using the Awaitility DSL) matches for the first time after a "poll delay" (the initial delay before the polling begins). By default Awaitility uses the same poll delay as poll interval which means that it checks the condition periodically first after the given poll delay, and subsequently with the given poll interval; that is conditions are checked after pollDelay then pollDelay+pollInterval, then pollDelay + 2 pollInterval, and so on.
 <br/>
 <br/>
