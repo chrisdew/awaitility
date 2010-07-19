@@ -66,7 +66,16 @@ We now reuse the `userRepositorySize` supplier and simply update the Hamcrest ma
 await().until( userRepositorySize(), equalTo(3) );
 }}}
 
-===Example 3===
+==Example 3 - Proxy based conditions ==
+It's also possible to achieve the same result by building up the supplier part using a proxy:
+
+{{{
+await().until( callTo(userRepository).size(), equalTo(3) );
+}}}
+
+`callTo` is method in Awaitility which you can use to define the suppling part inline in the await statement. Thus you don't need to create a `Callable` yourself since it's done for you. Which option you like best depends on the use case and readability.
+
+==Example 4 - Advanced==
 Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
 {{{  
 withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).await("customer registration").until(
@@ -75,7 +84,7 @@ withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).a
 
 
 = Defaults =
-If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a <code>TimeoutException</code> if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
+If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a `TimeoutException` if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
 {{{
   Awaitility.setDefaultTimeout(..)
