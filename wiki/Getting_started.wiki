@@ -1,0 +1,9 @@
+= Installation = 
+== Maven users ==
+TODO 
+
+== Non-maven users ==
+Download Awaitility 1.0 and put it in your class-path. You may also need to download the third-party dependencies and put them in your classpath as well. 
+
+= Documentation =
+When you've successfully downloaded and configured Awaitility in your classpath please refer to the [Usage user guide] for examples.
