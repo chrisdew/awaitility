@@ -3,7 +3,7 @@ Developers today need to depend heavily on concurrent programming, asynchronous 
 
 = Usage examples =
 
-==Example 1 - Simple start==
+==Example 1 - Simple==
 So let's assume that we send a "ADD_USER" message to our asynchronous system like this:
 
 {{{
