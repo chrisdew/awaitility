@@ -1,4 +1,6 @@
 = Usage examples =
+
+===Example 1===
 Wait at most 5 seconds until customer status has been updated:
  
 {{{
@@ -17,12 +19,13 @@ private Callable<Boolean> customerStatusHasUpdated() {
 }
 
 }}}
-
+===Example 2===
 Wait forever until the call to `orderService.orderCount()` is greater than 3.
 {{{
 await().forever().until(callTo(orderService).orderCount(), greaterThan(3));
 }}}
-  
+
+===Example 3===
 Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
 {{{  
 withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).await("customer registration").until(
