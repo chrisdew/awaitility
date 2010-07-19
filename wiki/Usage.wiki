@@ -26,6 +26,7 @@ You can also specify a default timeout, poll interval and poll delay using:
   
 You can also reset to the default values using `Awaitility.reset()`.
 <br/>
+<br/>
 In order to use Awaitility effectively it's recommended to statically import the following methods from the Awaitility framework:
   # `com.jayway.awaitility.Awaitlity.*`
 It may also be useful to import these methods:
