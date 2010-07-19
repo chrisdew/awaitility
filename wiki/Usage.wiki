@@ -1,0 +1,47 @@
+= Usage examples =
+Wait at most 5 seconds until customer status has been updated:
+ 
+{{{
+await().atMost(5, SECONDS).until(customerStatusHasUpdated());
+}}}
+
+Wait forever until the call to <code>orderService).orderCount()</code> is
+  greater than 3.
+{{{
+await().forever().until(callTo(orderService).orderCount(), greaterThan(3));
+}}}
+  
+Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
+{{{  
+withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).await(&quot;customer registration&quot;).until(
+  		costumerStatus(), equalTo(REGISTERED));
+}}}  
+
+You can also specify a default timeout, poll interval and poll delay using:
+  
+{{{
+  Awaitility.setDefaultTimeout(..)
+  Awaitility.setDefaultPollInterval(..)
+  Awaitility.setDefaultPollDelay(..)
+}}}
+  
+You can also reset to the default values using {@link Awaitility#reset()}.
+<br/>
+In order to use Awaitility effectively it's recommended to statically import the following methods from the Awaitility framework:
+  # `com.jayway.awaitility.Awaitlity.*`
+It may also be useful to import these methods:
+  # `com.jayway.awaitility.Duration.*`
+  # `java.util.concurrent.TimeUnit.*`
+  # `org.hamcrest.Matchers.*`
+  # `org.junit.Assert.*`
+
+A word on poll interval and poll delay: Awaitility starts to check the specified condition (the one you create using the Awaitility DSL) matches for the first time after a "poll delay" (the initial delay before the polling begins). By default Awaitility uses the same poll delay as poll interval which means that it checks the condition periodically first after the given poll delay, and subsequently with the given poll interval; that is conditions are checked after pollDelay then pollDelay+pollInterval, then pollDelay + 2 pollInterval, and so on.<br/>
+
+*Note:* If you change the poll interval the poll delay will also change
+  to match the specified poll interval _unless_ you've specified a poll
+  delay explicitly.
+<br/>
+  Note that since Awaitility uses polling to verify that a condition matches
+  it's not recommended to use it for precise performance testing. In these
+  cases it's better to use an AOP framework such as AspectJ's compile-time
+  weaving.
