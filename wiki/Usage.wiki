@@ -3,7 +3,7 @@ Developers today need to depend heavily on concurrent programming, asynchronous 
 
 = Usage examples =
 
-==Example 1==
+==Example 1 - Simple start==
 So let's assume that we send a "ADD_USER" message to our asynchronous system like this:
 
 {{{
@@ -34,7 +34,7 @@ By default Awaitility will wait for 10 seconds and if the size of the user respo
 await().atMost(5, SECONDS).until(newUserWasAdded());
 }}}
 
-== Example 2- Better resuse==
+== Example 2 - Better Re-use==
 
 Awaitility also supports splitting up the condition into a supplying and a matching part for better reuse. The example above can also be written as:
 
