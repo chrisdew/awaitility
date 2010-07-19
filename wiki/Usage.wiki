@@ -34,7 +34,7 @@ withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).a
 
 
 == Defaults ==
-You can also specify a default timeout, poll interval and poll delay using:
+If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a <code>TimeoutException</code> if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
 {{{
   Awaitility.setDefaultTimeout(..)
@@ -42,7 +42,7 @@ You can also specify a default timeout, poll interval and poll delay using:
   Awaitility.setDefaultPollDelay(..)
 }}}
   
-You can also reset to the default values using `Awaitility.reset()`.
+You can also reset back to the default values using `Awaitility.reset()`.
 
 == Static imports ==
 In order to use Awaitility effectively it's recommended to statically import the following methods from the Awaitility framework:
