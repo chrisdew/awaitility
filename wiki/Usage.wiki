@@ -32,6 +32,8 @@ withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).a
   		costumerStatus(), equalTo(REGISTERED));
 }}}  
 
+
+== Defaults ==
 You can also specify a default timeout, poll interval and poll delay using:
   
 {{{
