@@ -1,6 +1,3 @@
-= General =
-Developers today need to depend heavily on concurrent programming, asynchronous and distributed systems to allow for scalability and performance. A typical example is a message based system that perform various tasks after having interpreted a message and its payload. It may write to an event log, update database state, send additional messages to remote systems etc, possibly everything in an asynchronous manner. These kind of systems are not always easy to test. For example you may want to verify that when an ADD_USER message is sent to a system a new user is persisted into a database. If something unexpected happens such as an exception being thrown in any thread you'd still like your test to fail indicating this error. Awaitility let's you test these systems easily.
-
 = Usage examples =
 
 ==Example 1 - Simple==
@@ -82,6 +79,8 @@ withPollInterval(ONE_HUNDERED_MILLISECONDS).andWithPollDelay(20, MILLISECONDS).a
   		costumerStatus(), equalTo(REGISTERED));
 }}}  
 
+= Exception handling =
+By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
 
 = Defaults =
 If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a `TimeoutException` if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
