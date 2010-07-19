@@ -3,7 +3,7 @@
 TODO 
 
 == Non-maven users ==
-Download [http://awaitility.googlecode.com/files/awaitility-1.0.zip Awaitility 1.0] and put it in your class-path. You may also need to download the third-party dependencies and put them in your classpath as well. 
+Download [http://awaitility.googlecode.com/files/awaitility-1.0.zip Awaitility 1.0] and put it in your class-path. You may also need to download the [http://awaitility.googlecode.com/files/awaitility-dependencies.zip third-party dependencies] and put them in your classpath as well. 
 
 = Documentation =
 When you've successfully downloaded and configured Awaitility in your classpath please refer to the [Usage user guide] for examples.
