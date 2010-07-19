@@ -28,7 +28,7 @@ private Callable<Boolean> newUserWasAdded() {
 }
 }}}
 
-By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a <code>TimeoutException</code> failing the test. If you want a different timeout you can define it like this:
+By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a `TimeoutException` failing the test. If you want a different timeout you can define it like this:
 
 {{{
 await().atMost(5, SECONDS).until(newUserWasAdded());
