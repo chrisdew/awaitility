@@ -34,7 +34,7 @@ By default Awaitility will wait for 10 seconds and if the size of the user respo
 await().atMost(5, SECONDS).until(newUserWasAdded());
 }}}
 
-== Example 2 - Better Re-use==
+== Example 2 - Better reuse==
 
 Awaitility also supports splitting up the condition into a supplying and a matching part for better reuse. The example above can also be written as:
 
