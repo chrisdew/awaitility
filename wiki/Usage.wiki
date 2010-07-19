@@ -10,7 +10,7 @@ where `customerStatusHasUpdated()` may be defined as:
 private Callable<Boolean> customerStatusHasUpdated() {
 	return new Callable<Boolean>() {
 		public Boolean call() throws Exception {
-                        Customer c = ... // Get the customer
+                        Customer c = ... // Get the customer from a e.g. database
 			return c.getStatus() == Status.UPDATED; // The condition that must be fulfilled for the await statement exit.
 		}
 	};
