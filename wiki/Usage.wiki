@@ -5,8 +5,7 @@ Wait at most 5 seconds until customer status has been updated:
 await().atMost(5, SECONDS).until(customerStatusHasUpdated());
 }}}
 
-Wait forever until the call to <code>orderService).orderCount()</code> is
-  greater than 3.
+Wait forever until the call to <code>orderService).orderCount()</code> is greater than 3.
 {{{
 await().forever().until(callTo(orderService).orderCount(), greaterThan(3));
 }}}
