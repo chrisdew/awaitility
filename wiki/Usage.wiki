@@ -10,13 +10,13 @@ publish(new AddUserMessage("Awaitility Rocks"));
 In your test case Awaitility can help you to easily verify that the database has been updated. In its simplest form it may look something like this:
 
 {{{
-await().until(newUserWasAdded());
+await().until(newUserIsAdded());
 }}}
 
-`newUserWasAdded` is a method that you implement yourself in your test case. It specifies the condition that must be fulfilled in order for Awaitility to stop waiting.
+`newUserIsAdded` is a method that you implement yourself in your test case. It specifies the condition that must be fulfilled in order for Awaitility to stop waiting.
 
 {{{
-private Callable<Boolean> newUserWasAdded() {
+private Callable<Boolean> newUserIsAdded() {
 	return new Callable<Boolean>() {
 		public Boolean call() throws Exception {
 			return userRepository.size() == 1; // The condition that must be fulfilled
