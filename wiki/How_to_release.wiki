@@ -5,4 +5,4 @@
   # Log in to [https://oss.sonatype.org Sonatype]. 
   # Follow the [https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide Sonatype release directions] in bullet 10.
 
-The release is then automatically synced to Maven central.
+The release is then automatically synced to Maven central (the sync process runs hourly).
