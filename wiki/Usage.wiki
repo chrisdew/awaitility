@@ -114,4 +114,4 @@ If you change the poll interval the poll delay will also change to match the spe
 Note that since Awaitility uses polling to verify that a condition matches it's not recommended to use it for precise performance testing. In these cases it's better to use an AOP framework such as AspectJ's compile-time weaving.
 
 = Example of usage = 
-  # [http://github.com/jayway/awaitility/blob/awaitility-1.0/src/test/java/com/jayway/awaitility/AwaitilityTest.java Awaitility test case]
+  # [http://github.com/jayway/awaitility/blob/awaitility-1.2/src/test/java/com/jayway/awaitility/AwaitilityTest.java Awaitility test case]
