@@ -16,7 +16,7 @@ class MyTest extends AwaitilitySupport {
   def functionAsCondition() = {
     await until { someCounter() > 3 }
     await until { isDone() }
-    await until isDone _
+    await until isDone 
   }
   def isDone() : Boolean = {
     // implementation goes here
