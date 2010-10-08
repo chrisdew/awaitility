@@ -8,7 +8,7 @@ We have also added a Scala API that allows you to write things
 await until { numberOfReceivedMessages() > 3 }
 }}}
 
-What you actually provide is a no argument function that returns a `scala.Boolean`. To make this work you simple mixin the `AwaitilitySupport` trait that is provided in the awaitility-scala module. Example:
+What you actually provide is a no argument function that returns a `scala.Boolean`. To make this work you simply mixin the `AwaitilitySupport` trait that is provided in the awaitility-scala module. Example:
 
 {{{
 class MyTest extends AwaitilitySupport {
