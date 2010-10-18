@@ -2,7 +2,7 @@
 == Maven users ==
 Add the following dependency to your pom.xml:
 
-=== Java DSL ===
+==== Java DSL ====
 {{{
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
@@ -12,7 +12,7 @@ Add the following dependency to your pom.xml:
 </dependency>
 }}}
 
-=== Scala DSL ===
+==== Scala DSL ====
 {{{
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
