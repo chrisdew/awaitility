@@ -135,5 +135,5 @@ Awaitility does nothing to ensure thread safety or thread synchronization! This 
  
 
 = Example of usage = 
-  # [http://github.com/jayway/awaitility/blob/awaitility-1.3/src/test/java/com/jayway/awaitility/AwaitilityTest.java Awaitility test case]
-  # [http://github.com/jayway/awaitility/blob/awaitility-1.3/src/test/java/com/jayway/awaitility/UsingFieldSupplierTest.java Field supplier test case]
+  # [http://github.com/jayway/awaitility/blob/master/awaitility/src/test/java/com/jayway/awaitility/AwaitilityTest.java Awaitility test case]
+  # [http://github.com/jayway/awaitility/blob/master/awaitility/src/test/java/com/jayway/awaitility/UsingFieldSupplierTest.java Field supplier test case]
