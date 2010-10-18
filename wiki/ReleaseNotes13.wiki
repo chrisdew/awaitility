@@ -22,4 +22,4 @@ await until { myObject.myMethod == 2 }
 }}}
 
 == Minor changes == 
-Refer to the change log.
+Refer to the [http://github.com/jayway/awaitility/raw/master/changelog.txt change log].
