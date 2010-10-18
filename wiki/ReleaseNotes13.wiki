@@ -3,12 +3,12 @@
 == Backward incompatible changes ==
 `Awaitility.callTo` has been renamed to `Awaitility.to` which should be used together with the new `untilCall` method. I.e. instead of writing:
 {{{
-await().until(callTo(myObject).myMethod(), equalTo(2)); // Syntax up until Awaitility 1.2.1
+await().until( callTo(myObject).myMethod(), equalTo(2) ); // Syntax up until Awaitility 1.2.1
 }}}
 
 you write 
 {{{
-await().untilCall(to(myObject).myMethod(), equalTo(2)); // Syntax Awaitility 1.3
+await().untilCall( to(myObject).myMethod(), equalTo(2) ); // Syntax Awaitility 1.3
 }}}
 
 == Other notable changes == 
