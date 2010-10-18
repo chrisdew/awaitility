@@ -37,3 +37,6 @@ Use the following Maven dependency:
     <version>${awaitility.version}</version>
 </dependency>
 }}}
+
+= Example =
+  # [http://github.com/jayway/awaitility/blob/master/awaitility-scala/src/test/scala/com/jayway/awaitility/scala/AwaitilitySupportTest.scala Scala example]
