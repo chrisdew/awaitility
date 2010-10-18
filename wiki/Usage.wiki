@@ -1,5 +1,6 @@
+For Scala documentation click [Scala here].
+
 = Usage examples =
-(For Scala documentation click [Scala here])
 
 ==Example 1 - Simple==
 Let's assume that we send a "add user" message to our asynchronous system like this:
