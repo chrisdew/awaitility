@@ -128,8 +128,11 @@ It may also be useful to import these methods:
 = Polling = 
 Awaitility starts to check the specified condition (the one you create using the Awaitility DSL) matches for the first time after a "poll delay" (the initial delay before the polling begins). By default Awaitility uses the same poll delay as poll interval which means that it checks the condition periodically first after the given poll delay, and subsequently with the given poll interval; that is conditions are checked after pollDelay then pollDelay+pollInterval, then pollDelay + 2 pollInterval, and so on. If you change the poll interval the poll delay will also change to match the specified poll interval _unless_ you've specified a poll delay explicitly.
 <br/>
-<br/>
 Note that since Awaitility uses polling to verify that a condition matches it's not recommended to use it for precise performance testing. In these cases it's better to use an AOP framework such as AspectJ's compile-time weaving.
+
+= Important =
+Awaitility does nothing to ensure thread safety or thread synchronization! This is your responsibility! Make sure your code is correctly synchronized or that you are using thread safe data structures such as volatile fields or classes such as AtomicInteger and ConcurrentHashMap. 
+ 
 
 = Example of usage = 
   # [http://github.com/jayway/awaitility/blob/awaitility-1.2.1/src/test/java/com/jayway/awaitility/AwaitilityTest.java Awaitility test case]
