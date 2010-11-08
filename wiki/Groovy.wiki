@@ -13,9 +13,6 @@ To make this work you simply extend the `AwaitilitySupport` class that is provid
 {{{
 class AwaitilitySupportTest extends AwaitilitySupport {
 
-  @Rule
-  public def ExpectedException exception = ExpectedException.none()
-
   @Test
   def void groovyClosureSupport() throws Exception {
     ... 
