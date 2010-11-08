@@ -18,7 +18,9 @@ class AwaitilitySupportTest extends AwaitilitySupport {
     ... 
 
     await().until { getValue() == 1 }
-}}}}
+  }
+}
+}}}
 
 Use the following Maven dependency:
 
