@@ -18,9 +18,9 @@ class AwaitilitySupportTest extends AwaitilitySupport {
 
   @Test
   def void groovyClosureSupport() throws Exception {
-    def asynch = new Asynch().perform()
+    ... 
 
-    await().until { asynch.getValue() == 1 }
+    await().until { getValue() == 1 }
   }}}}
 
 Use the following Maven dependency:
