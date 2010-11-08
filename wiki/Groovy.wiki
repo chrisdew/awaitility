@@ -34,4 +34,4 @@ Use the following Maven dependency:
 }}}
 
 = Example =
-  # [http://github.com/jayway/awaitility/blob/master/awaitility-groovy/src/test/groovy/com/jayway/awaitility/groovy/AwaitilitySupportTest.groovy Groovy example]
+  # [https://github.com/jayway/awaitility/blob/master/awaitility-groovy/src/test/groovy/com/jayway/awaitility/groovy/AwaitilitySupportTest.groovy Groovy example]
