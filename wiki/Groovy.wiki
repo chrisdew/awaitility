@@ -21,6 +21,7 @@ class AwaitilitySupportTest extends AwaitilitySupport {
   }}}}
 
 Use the following Maven dependency:
+}}}
 
 {{{
 <dependency>
