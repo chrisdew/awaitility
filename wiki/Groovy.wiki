@@ -1,0 +1,37 @@
+#summary Groovy API for Awaitility
+
+= Groovy API =
+
+We have also added a Groovy API that allows you to write 
+
+{{{
+await().until { numberOfReceivedMessages() > 3 }
+}}}
+
+To make this work you simply extend the `AwaitilitySupport` class that is provided in the awaitility-groovy module. Example:
+
+{{{
+class AwaitilitySupportTest extends AwaitilitySupport {
+
+  @Rule
+  public def ExpectedException exception = ExpectedException.none()
+
+  @Test
+  def void groovyClosureSupport() throws Exception {
+    def asynch = new Asynch().perform()
+
+    await().until { asynch.getValue() == 1 }
+  }}}}
+
+Use the following Maven dependency:
+
+{{{
+<dependency>
+    <groupId>com.jayway.awaitility</groupId>
+    <artifactId>awaitility-groovy</artifactId>
+    <version>${awaitility.version}</version>
+</dependency>
+}}}
+
+= Example =
+  # [http://github.com/jayway/awaitility/blob/master/awaitility-groovy/src/test/groovy/com/jayway/awaitility/groovy/AwaitilitySupportTest.groovy Groovy example]
