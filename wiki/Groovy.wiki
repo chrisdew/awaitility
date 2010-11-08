@@ -17,7 +17,7 @@ class AwaitilitySupportTest extends AwaitilitySupport {
   def void groovyClosureSupport() throws Exception {
     ... 
 
-    await().until { numberOfReceivedMessages() == 3 }
+    await().until { numberOfReceivedMessages() > 3 }
   }
 }
 }}}
