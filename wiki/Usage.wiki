@@ -1,4 +1,5 @@
-For Scala documentation click [Scala here].
+* For Scala documentation click [Scala here].
+* For Groovy documentation click [Groovy here].
 
 = Usage examples =
 
