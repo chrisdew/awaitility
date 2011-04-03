@@ -1,13 +1,2 @@
-#summary One-sentence summary of this page.
-
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * 2010-08-30: [http://awaitility.googlecode.com/files/awaitility-1.2.zip Awaitility 1.2] is released. It improves error messages on timeouts to include actual value from the last poll.
+  * 2010-08-25: [http://awaitility.googlecode.com/files/awaitility-1.1.zip Awaitility 1.1] is released. Main enhancement is better default error messages on timeouts. See [http://github.com/jayway/awaitility/raw/master/changelog.txt change log] for more details.
