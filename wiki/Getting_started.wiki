@@ -41,7 +41,7 @@ Maven:
 Grapes:
 {{{
 @Grapes(
-    @Grab(group='com.jayway.awaitility', module='awaitility-scala', version='1.3.2')
+    @Grab(group='com.jayway.awaitility', module='awaitility-groovy', version='1.3.2')
 ) 
 }}}
  
