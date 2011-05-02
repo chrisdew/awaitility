@@ -13,6 +13,7 @@ Add the following dependency to your pom.xml:
 }}}
 
 ==== Scala DSL ====
+Maven:
 {{{
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
@@ -21,6 +22,11 @@ Add the following dependency to your pom.xml:
       <scope>test</scope>
 </dependency>
 }}}
+SBT:
+{{{
+val awaitility-scala = "com.jayway.awaitility" % "awaitility-scala" % "1.3.2"
+}}}
+
 
 ==== Groovy DSL ====
 {{{
