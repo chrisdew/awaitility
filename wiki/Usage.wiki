@@ -94,8 +94,25 @@ or:
 await().until( fieldIn(object).ofType(int.class).andAnnotatedWith(MyAnnotation.class), equalTo(2) );
 }}}
 
+==Example 5 - Atomic==
 
-==Example 5 - Advanced==
+If you're using [http://download.oracle.com/javase/1,5.0/docs/api/java/util/concurrent/atomic/package-summary.html Atomic] structures Awaitility provides a simple way to wait until they match a specific value:
+
+{{{
+AtomicInteger atomic = new AtomicInteger(0);
+// Do some async stuff that eventually updates the atomic integer
+await().untilAtomic(atomic, equalTo(1));
+}}}
+
+Waiting for an AtomicBoolean is even simpler:
+
+{{{
+AtomicBoolean atomic = new AtomicBoolean(false);
+// Do some async stuff that eventually updates the atomic boolean
+await().untilTrue(atomic);
+}}}
+
+==Example 6 - Advanced==
 Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
 {{{  
 with().pollInterval(ONE_HUNDERED_MILLISECONDS).and().with().pollDelay(20, MILLISECONDS).await("customer registration").until(
