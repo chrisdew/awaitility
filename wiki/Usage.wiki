@@ -1,6 +1,8 @@
   * For Scala documentation click [Scala here].
   * For Groovy documentation click [Groovy here].
 
+<wiki:toc max_depth="2" />
+
 = Usage examples =
 
 ==Example 1 - Simple==
