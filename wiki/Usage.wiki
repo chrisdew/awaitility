@@ -139,7 +139,7 @@ You can also reset back to the default values using `Awaitility.reset()`.
 
 == Static imports ==
 In order to use Awaitility effectively it's recommended to statically import the following methods from the Awaitility framework:
-  # `com.jayway.awaitility.Awaitlity.*`
+  # `com.jayway.awaitility.Awaitility.*`
 It may also be useful to import these methods:
   # `com.jayway.awaitility.Duration.*`
   # `java.util.concurrent.TimeUnit.*`
