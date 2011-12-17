@@ -1,4 +1,4 @@
- * 2011-04-03: Presentation from [http://www.jayway.com Jayway]'s K-Helg is [http://awaitility.googlecode.com/files/awaitility-khelg-2011.pdf online].
+  * 2011-04-03: Presentation from [http://www.jayway.com Jayway]'s K-Helg is [http://awaitility.googlecode.com/files/awaitility-khelg-2011.pdf online].
   * 2010-11-14: [http://awaitility.googlecode.com/files/awaitility-1.3.1.zip Awaitility 1.3.1] is released with [Groovy Groovy] support. See [http://github.com/jayway/awaitility/raw/master/changelog.txt change log] for details.
   * 2010-10-18: [http://awaitility.googlecode.com/files/awaitility-1.3.zip Awaitility 1.3] is released with [Scala Scala] and [Usage#Example_4_-_Fields fieldIn] support. See [ReleaseNotes13 release notes] for details.
   * 2010-09-12: [http://awaitility.googlecode.com/files/awaitility-1.2.1.zip Awaitility 1.2.1] is released. See [http://github.com/jayway/awaitility/raw/master/changelog.txt change log] for details.
