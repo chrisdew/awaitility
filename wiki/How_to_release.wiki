@@ -1,5 +1,6 @@
 = How to release =
 
+  # Switch to maven 2
   # Run `mvn release:prepare -Prelease`
   # Run `mvn release:perform -Prelease`
   # Log in to [https://oss.sonatype.org Sonatype]. 
