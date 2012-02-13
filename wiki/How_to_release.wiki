@@ -1,5 +1,6 @@
 = How to release =
 
+  # Update the change log indicating the date of the release
   # Switch to maven 2
   # Run `mvn release:prepare -Prelease`
   # Run `mvn release:perform -Prelease`
