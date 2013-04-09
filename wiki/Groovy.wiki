@@ -15,7 +15,7 @@ To make this work you simply extend or mixin the `AwaitilitySupport` class that 
 class AwaitilitySupportTest {
 
   @Test
-  def void groovyClosureSupport() throws Exception {
+  def void groovyClosureSupport()  {
     ... 
 
     await().until { numberOfReceivedMessages() > 3 }
