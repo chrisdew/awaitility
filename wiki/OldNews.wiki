@@ -1,3 +1,4 @@
+  * 2012-02-13: [http://awaitility.googlecode.com/files/awaitility-1.3.4.zip Awaitility 1.3.4] is released. See [http://github.com/jayway/awaitility/raw/master/changelog.txt change log] for details. 
   * 2011-11-16: Awaitility was [http://www.devoxx.com/display/DV11/Quickie+Day+3 presented] at [http://www.devoxx.com/display/DV11/Home Devoxx 2011] in Antwerp.
   * 2011-09-22: [http://awaitility.googlecode.com/files/awaitility-1.3.3.zip Awaitility 1.3.3] is released with better support for [http://code.google.com/p/awaitility/wiki/Usage#Example_5_-_Atomic atomic data structures].
   * 2011-04-03: [http://awaitility.googlecode.com/files/awaitility-1.3.2.zip Awaitility 1.3.2] is released with a few bugs fixes and smaller improvements. See [http://github.com/jayway/awaitility/raw/master/changelog.txt change log] for details. 
