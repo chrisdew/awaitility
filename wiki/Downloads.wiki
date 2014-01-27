@@ -1,0 +1,13 @@
+= Downloads =
+
+Google no longer accepts uploading of new binaries to the Google Code page so the files are now hosted at [https://bintray.com/johanhaleby/generic/awaitility Bintray]. 
+
+== Current direct downloads == 
+|| File || Description ||
+|| [http://dl.bintray.com/johanhaleby/generic/awaitility-1.5.0.zip awaitility-1.5.0.zip] || Awaitility Java DSL 1.5.0 (including javadocs and source) ||
+|| [http://dl.bintray.com/johanhaleby/generic/awaitility-groovy-1.5.0.zip awaitility-groovy-1.5.0.zip]  || Awaitility Groovy DSL 1.5.0 (including javadocs and source, requires Java DSL) ||
+|| [http://dl.bintray.com/johanhaleby/generic/awaitility-scala-1.5.0.zip awaitility-scala-1.5.0.zip]  || Awaitility Scala DSL 1.5.0 (including javadocs and source, requires Java DSL) ||
+|| [http://dl.bintray.com/johanhaleby/generic/awaitility-dependencies.zip awaitility-dependencies.zip]  || Awaitility Java third-party dependencies (required)  ||
+
+== Legacy versions ==
+If you're looking for legacy versions of Awaitility (version 1.4.0 and below) have a look in the old  <a href="https://code.google.com/p/awaitility/downloads/list?can=1&q=&colspec=Filename+Summary+Uploaded+ReleaseDate+Size+DownloadCount">download page</a>.
