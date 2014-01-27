@@ -1,0 +1,6 @@
+com.jayway.awaitility
+com.jayway.awaitility.core
+com.jayway.awaitility.proxy
+com.jayway.awaitility.reflect
+com.jayway.awaitility.reflect.exception
+com.jayway.awaitility.spi
