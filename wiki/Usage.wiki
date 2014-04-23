@@ -134,7 +134,7 @@ with().pollInterval(ONE_HUNDERED_MILLISECONDS).and().with().pollDelay(20, MILLIS
             costumerStatus(), equalTo(REGISTERED));
 }}}
 
-== Example 7  - Using Java 8 ==
+== Example 7  - Java 8 ==
 If you're using Java 8 you can also use lambda expressions in your conditions:
 
 {{{
