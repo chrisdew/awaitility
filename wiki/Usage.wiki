@@ -35,15 +35,15 @@ await().until(newUserIsAdded());
 
 {{{
 private Callable<Boolean> newUserIsAdded() {
-	return new Callable<Boolean>() {
-		public Boolean call() throws Exception {
-			return userRepository.size() == 1; // The condition that must be fulfilled
-		}
-	};
+      return new Callable<Boolean>() {
+            public Boolean call() throws Exception {
+                  return userRepository.size() == 1; // The condition that must be fulfilled
+            }
+      };
 }
 }}}
 
-By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a [http://awaitility.googlecode.com/svn/tags/1.5.0/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] failing the test. If you want a different timeout you can define it like this:
+By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a [http://awaitility.googlecode.com/svn/tags/1.6.0/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] failing the test. If you want a different timeout you can define it like this:
 
 {{{
 await().atMost(5, SECONDS).until(newUserWasAdded());
@@ -60,11 +60,11 @@ await().until( userRepositorySize(), equalTo(1) );
 The `userRepositorySize` method is now a `Callable` of type `Integer`:
 {{{
 private Callable<Integer> userRepositorySize() {
-	return new Callable<Integer>() {
-		public Integer call() throws Exception {
-			return userRepository.size(); // The condition supplier part
-		}
-	};
+      return new Callable<Integer>() {
+            public Integer call() throws Exception {
+                  return userRepository.size(); // The condition supplier part
+            }
+      };
 }
 }}}
 
@@ -131,14 +131,14 @@ await().untilTrue(atomic);
 Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
 {{{  
 with().pollInterval(ONE_HUNDERED_MILLISECONDS).and().with().pollDelay(20, MILLISECONDS).await("customer registration").until(
-  		costumerStatus(), equalTo(REGISTERED));
+            costumerStatus(), equalTo(REGISTERED));
 }}}  
 
 = Exception handling =
 By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
 
 = Defaults =
-If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a [http://awaitility.googlecode.com/svn/tags/1.5.0/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
+If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a [http://awaitility.googlecode.com/svn/tags/1.6.0/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
 {{{
   Awaitility.setDefaultTimeout(..)
