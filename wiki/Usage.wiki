@@ -157,7 +157,9 @@ await().atMost(5, SECONDS).until(userRepository::size, is(1));
 
 Starting from version 1.6.0 you can use <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> or <a href="https://code.google.com/p/fest/">Fest Assert</a> as an alternative to Hamcrest (it's actually possible to use any third party library that throws exception on error). For example:
 
+{{{
 await().atMost(5, SECONDS).until(() -> assertThat(fakeRepository.getValue()).isEqualTo(1));
+}}}
 
 = Exception handling =
 By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
