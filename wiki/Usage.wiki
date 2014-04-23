@@ -153,6 +153,9 @@ Or a combination of method references and Hamcrest matchers:
 await().atMost(5, SECONDS).until(userRepository::size, is(1));
 }}}
 
+
+For examples refer to the <a href="http://www.jayway.com/2014/04/23/java-8-and-assertj-support-in-awaitility-1-6-0/">Jayway team blog</a>. 
+
 == Example 8 - Using AssertJ or Fest Assert ==
 
 Starting from version 1.6.0 you can use <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> or <a href="https://code.google.com/p/fest/">Fest Assert</a> as an alternative to Hamcrest (it's actually possible to use any third party library that throws exception on error). For example:
