@@ -49,13 +49,6 @@ By default Awaitility will wait for 10 seconds and if the size of the user respo
 await().atMost(5, SECONDS).until(newUserWasAdded());
 }}}
 
-=== Java 8 ===
-If you're using Java 8 you can also use lambda expressions:
-
-{{{
-await().atMost(5, SECONDS).until(() -> userRepository.size() == 1);
-}}}
-
 == Example 2 - Better reuse==
 
 Awaitility also supports splitting up the condition into a supplying and a matching part for better reuse. The example above can also be written as:
@@ -139,7 +132,32 @@ Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds
 {{{  
 with().pollInterval(ONE_HUNDERED_MILLISECONDS).and().with().pollDelay(20, MILLISECONDS).await("customer registration").until(
             costumerStatus(), equalTo(REGISTERED));
-}}}  
+}}}
+
+== Example 7  - Using Java 8 ==
+If you're using Java 8 you can also use lambda expressions in your conditions:
+
+{{{
+await().atMost(5, SECONDS).until(() -> userRepository.size() == 1);
+}}}
+
+Or method references:
+
+{{{
+await().atMost(5, SECONDS).until(userRepository::isNotEmpty);
+}}}
+
+Or a combination of method references and Hamcrest matchers:
+
+{{{
+await().atMost(5, SECONDS).until(userRepository::size, is(1));
+}}}
+
+== Example 8 - Using AssertJ or Fest Assert ==
+
+Starting from version 1.6.0 you can use <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> or <a href="https://code.google.com/p/fest/">Fest Assert</a> as an alternative to Hamcrest (it's actually possible to use any third party library that throws exception on error). For example:
+
+await().atMost(5, SECONDS).until(() -> assertThat(fakeRepository.getValue()).isEqualTo(1));
 
 = Exception handling =
 By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
