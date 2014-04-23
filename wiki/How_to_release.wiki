@@ -1,7 +1,7 @@
 = How to release =
 
   # Update the change log indicating the date of the release
-  # Switch to maven 2 and Java 8
+  # Switch to Java 8
   # Run `mvn release:prepare -Prelease`
   # Run `mvn release:perform -Prelease`
   # Log in to [https://oss.sonatype.org Sonatype]. 
