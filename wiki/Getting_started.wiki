@@ -7,7 +7,7 @@ Add the following dependency to your pom.xml:
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
       <artifactId>awaitility</artifactId>
-      <version>1.6.0</version>
+      <version>1.6.1</version>
       <scope>test</scope>
 </dependency>
 }}}
@@ -18,13 +18,13 @@ Maven:
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
       <artifactId>awaitility-scala</artifactId>
-      <version>1.6.0</version>
+      <version>1.6.1</version>
       <scope>test</scope>
 </dependency>
 }}}
 SBT:
 {{{
-val awaitility-scala = "com.jayway.awaitility" % "awaitility-scala" % "1.6.0"
+val awaitility-scala = "com.jayway.awaitility" % "awaitility-scala" % "1.6.1"
 }}}
 
 ==== Groovy DSL ====
@@ -33,7 +33,7 @@ Maven:
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
       <artifactId>awaitility-groovy</artifactId>
-      <version>1.6.0</version>
+      <version>1.6.1</version>
       <scope>test</scope>
 </dependency>
 }}}
@@ -41,12 +41,12 @@ Maven:
 Grapes:
 {{{
 @Grapes(
-    @Grab(group='com.jayway.awaitility', module='awaitility-groovy', version='1.6.0')
+    @Grab(group='com.jayway.awaitility', module='awaitility-groovy', version='1.6.1')
 ) 
 }}}
  
 == Non-maven users ==
-Download [http://dl.bintray.com/johanhaleby/generic/awaitility-1.6.0.zip Awaitility] and put it in your class-path. You may also need to download the [http://dl.bintray.com/johanhaleby/generic/awaitility-dependencies.zip third-party dependencies] and put them in your classpath as well. Scala users must also download [http://dl.bintray.com/johanhaleby/generic/awaitility-scala-1.6.0.zip awaitility-scala] and Groovy users must download [http://dl.bintray.com/johanhaleby/generic/awaitility-groovy-1.6.0.zip awaitility-groovy].
+Download [http://dl.bintray.com/johanhaleby/generic/awaitility-1.6.1.zip Awaitility] and put it in your class-path. You may also need to download the [http://dl.bintray.com/johanhaleby/generic/awaitility-dependencies.zip third-party dependencies] and put them in your classpath as well. Scala users must also download [http://dl.bintray.com/johanhaleby/generic/awaitility-scala-1.6.1.zip awaitility-scala] and Groovy users must download [http://dl.bintray.com/johanhaleby/generic/awaitility-groovy-1.6.1.zip awaitility-groovy].
 
 = Documentation =
 When you've successfully downloaded and configured Awaitility in your classpath please refer to the [Usage user guide] for examples.
