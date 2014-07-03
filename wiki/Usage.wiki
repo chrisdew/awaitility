@@ -206,6 +206,8 @@ There's a built-in `ConditionEvaluationListener` for logging called <a href="htt
 with().conditionEvaluationListener(new ConditionEvaluationLogger()).await(). ...
 }}}
 
+Note that currently this only works for Hamcrest-based conditions.
+
 = Important =
 Awaitility does nothing to ensure thread safety or thread synchronization! This is your responsibility! Make sure your code is correctly synchronized or that you are using thread safe data structures such as volatile fields or classes such as AtomicInteger and ConcurrentHashMap. 
  
