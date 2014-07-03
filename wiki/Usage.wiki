@@ -183,6 +183,29 @@ Awaitility starts to check if the specified condition (the one you create using 
 <br/>
 Note that since Awaitility uses polling to verify that a condition matches it's not recommended to use it for precise performance testing. In these cases it's better to use an AOP framework such as AspectJ's compile-time weaving.
 
+= Condition Evaluation Listener =
+Awaitility 1.6.1 introduced the concept of <a href="http://awaitility.googlecode.com/svn/tags/1.6.1/apidocs/index.html">Condition Evaluation Listener</a>. This can be used to get information each time a Hamcrest-based condition has been evaluated by Awaitility. You can use this to get for example the intermediate values of of a condition before it was fulfilled. It can also be used for logging purposes. For example:
+{{{
+with().
+         conditionEvaluationListener(condition -> System.out.printf("%s (elapsed time %dms, remaining time %dms)\n", condition.getDescription(), condition.getElapsedTimeInMS(), condition.getRemainingTimeInMS())).
+         await().atMost(Duration.TEN_SECONDS).until(new CountDown(5), is(equalTo(0)));
+}}}
+will print the following to the console:
+{{{
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown expected (<0> or a value less than <0>) but was <5> (elapsed time 101ms, remaining time 1899ms)
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown expected (<0> or a value less than <0>) but was <4> (elapsed time 204ms, remaining time 1796ms)
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown expected (<0> or a value less than <0>) but was <3> (elapsed time 306ms, remaining time 1694ms)
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown expected (<0> or a value less than <0>) but was <2> (elapsed time 407ms, remaining time 1593ms)
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown expected (<0> or a value less than <0>) but was <1> (elapsed time 508ms, remaining time 1492ms)
+    com.jayway.awaitility.AwaitilityJava8Test$CountDown reached its end value of (<0> or a value less than <0>) (elapsed time 610ms, remaining time 1390ms)
+}}}
+
+There's a built-in `ConditionEvaluationListener` for logging called <a href="http://awaitility.googlecode.com/svn/tags/1.6.1/apidocs/com/jayway/awaitility/core/ConditionEvaluationLogger.html">ConditionEvaluationLogger</a> that you can use like this:
+
+{{{
+with().conditionEvaluationListener(new ConditionEvaluationLogger()).await(). ...
+}}}
+
 = Important =
 Awaitility does nothing to ensure thread safety or thread synchronization! This is your responsibility! Make sure your code is correctly synchronized or that you are using thread safe data structures such as volatile fields or classes such as AtomicInteger and ConcurrentHashMap. 
  
