@@ -131,7 +131,7 @@ await().untilTrue(atomic);
 Use a poll interval of 100 milliseconds with an initial delay of 20 milliseconds until customer status is equal to "REGISTERED". This example also uses a named await by specifying an alias ("customer registration"). This makes it easy to find out which await statement that failed if you have multiple awaits in the same test.
 {{{  
 with().pollInterval(ONE_HUNDERED_MILLISECONDS).and().with().pollDelay(20, MILLISECONDS).await("customer registration").until(
-            costumerStatus(), equalTo(REGISTERED));
+            customerStatus(), equalTo(REGISTERED));
 }}}
 
 == Example 7 - Java 8 ==
