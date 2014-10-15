@@ -167,6 +167,9 @@ await().atMost(5, SECONDS).until(() -> assertThat(fakeRepository.getValue()).isE
 = Exception handling =
 By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
 
+= Deadlock detection =
+Awaitility 1.6.2 automatically detect deadlocks and associates the cause of the <a href="ConditionTimeoutException">https://github.com/jayway/awaitility/blob/master/awaitility/src/main/java/com/jayway/awaitility/core/ConditionTimeoutException.java</> with a <a href="DeadLockException">https://github.com/jayway/awaitility/blob/master/awaitility/src/main/java/com/jayway/awaitility/core/DeadlockException.java</a> if deadlock is found. The `DeadlockException` contains information on what threads are causing the deadlock.
+
 = Defaults =
 If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a [http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
