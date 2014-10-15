@@ -12,7 +12,7 @@ await().until { numberOfReceivedMessages() > 3 }
 Implement the `AwaitilityTrait` that is provided in the awaitility-groovy module. Example:
 
 {{{
-class AwaitilitySupportTest  implements AwaitilityTrait{
+class AwaitilityTraitTest implements AwaitilityTrait{
 
   @Test
   def void groovyClosureSupport()  {
