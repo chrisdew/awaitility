@@ -184,7 +184,7 @@ Awaitility starts to check if the specified condition (the one you create using 
 Note that since Awaitility uses polling to verify that a condition matches it's not recommended to use it for precise performance testing. In these cases it's better to use an AOP framework such as AspectJ's compile-time weaving.
 
 = Condition Evaluation Listener =
-Awaitility 1.6.2 introduced the concept of <a href="http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionEvaluationListener.html">Condition Evaluation Listener</a>. This can be used to get information each time a Hamcrest-based condition has been evaluated by Awaitility. You can for example use this to get the intermediate values of a condition before it is fulfilled. It can also be used for logging purposes. For example:
+Awaitility 1.6.1 introduced the concept of <a href="http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionEvaluationListener.html">Condition Evaluation Listener</a>. This can be used to get information each time a condition has been evaluated by Awaitility. You can for example use this to get the intermediate values of a condition before it is fulfilled. It can also be used for logging purposes. For example:
 {{{
 with().
          conditionEvaluationListener(condition -> System.out.printf("%s (elapsed time %dms, remaining time %dms)\n", condition.getDescription(), condition.getElapsedTimeInMS(), condition.getRemainingTimeInMS())).
@@ -206,7 +206,7 @@ There's a built-in `ConditionEvaluationListener` for logging called <a href="htt
 with().conditionEvaluationListener(new ConditionEvaluationLogger()).await(). ...
 }}}
 
-Note that currently this only works for Hamcrest-based conditions.
+Note that Awaitility 1.6.1 only support Hamcrest-based conditions but in 1.6.2 and above all condition types work.
 
 = Important =
 Awaitility does nothing to ensure thread safety or thread synchronization! This is your responsibility! Make sure your code is correctly synchronized or that you are using thread safe data structures such as volatile fields or classes such as AtomicInteger and ConcurrentHashMap. 
