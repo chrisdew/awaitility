@@ -8,7 +8,23 @@ We have also added a Groovy API that allows you to write
 await().until { numberOfReceivedMessages() > 3 }
 }}}
 
-To make this work you simply extend or mixin the `AwaitilitySupport` class that is provided in the awaitility-groovy module. Example:
+== Groovy 2.3+ ==
+Implement the `AwaitilityTrait` that is provided in the awaitility-groovy module. Example:
+
+{{{
+class AwaitilitySupportTest  implements AwaitilityTrait{
+
+  @Test
+  def void groovyClosureSupport()  {
+    ... 
+
+    await().until { numberOfReceivedMessages() > 3 }
+  }
+}
+}}}
+
+== Groovy 2.2 and below ==
+Extend or mixin the `AwaitilitySupport` class that is provided in the awaitility-groovy module. Example:
 
 {{{
 @Mixin(AwaitilitySupport)
@@ -23,7 +39,7 @@ class AwaitilitySupportTest {
 }
 }}}
 
-Use the following Maven dependency:
+== Use the following Maven dependency ==
 
 {{{
 <dependency>
