@@ -5,6 +5,7 @@
   # Run `mvn release:prepare -Prelease`
   # Run `mvn release:perform -Prelease`
   # Log in to [https://oss.sonatype.org Sonatype]. 
+  # Remove the awaitility-java8-test project so that it's not synced to central
   # Follow the [https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide Sonatype release directions] in bullet 8.  
   # Upload the artifacts to [http://bintray.com bintray].
   # Upload the javadoc to googlecode:
