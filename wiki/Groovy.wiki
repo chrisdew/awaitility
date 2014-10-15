@@ -8,7 +8,7 @@ We have also added a Groovy API that allows you to write
 await().until { numberOfReceivedMessages() > 3 }
 }}}
 
-== Groovy 2.3+ ==
+== Groovy 2.3 and above ==
 Implement the `AwaitilityTrait` that is provided in the awaitility-groovy module. Example:
 
 {{{
