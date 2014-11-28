@@ -43,7 +43,7 @@ private Callable<Boolean> newUserIsAdded() {
 }
 }}}
 
-By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a [http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] failing the test. If you want a different timeout you can define it like this:
+By default Awaitility will wait for 10 seconds and if the size of the user respository is not equal to 1 during this time it'll throw a [http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] failing the test. If you want a different timeout you can define it like this:
 
 {{{
 await().atMost(5, SECONDS).until(newUserWasAdded());
@@ -158,7 +158,7 @@ For examples refer to the <a href="http://www.jayway.com/2014/04/23/java-8-and-a
 
 == Example 8 - Using AssertJ or Fest Assert ==
 
-Starting from version 1.6.2 you can use <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> or <a href="https://code.google.com/p/fest/">Fest Assert</a> as an alternative to Hamcrest (it's actually possible to use any third party library that throws exception on error). For example:
+Starting from version 1.6.3 you can use <a href="http://joel-costigliola.github.io/assertj/">AssertJ</a> or <a href="https://code.google.com/p/fest/">Fest Assert</a> as an alternative to Hamcrest (it's actually possible to use any third party library that throws exception on error). For example:
 
 {{{
 await().atMost(5, SECONDS).until(() -> assertThat(fakeRepository.getValue()).isEqualTo(1));
@@ -168,10 +168,10 @@ await().atMost(5, SECONDS).until(() -> assertThat(fakeRepository.getValue()).isE
 By default Awaitility catches uncaught exceptions in all threads and propagates them to the awaiting thread. This means that your test-case will indicate failure even if it's not the test-thread that threw the uncaught exception.
 
 = Deadlock detection =
-Awaitility 1.6.2 automatically detect deadlocks and associates the cause of the [http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException]  with a [http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/DeadlockException.html DeadlockException]. The `DeadlockException` contains information on what threads are causing the deadlock.
+Awaitility 1.6.3 automatically detect deadlocks and associates the cause of the [http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException]  with a [http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/DeadlockException.html DeadlockException]. The `DeadlockException` contains information on what threads are causing the deadlock.
 
 = Defaults =
-If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a [http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
+If you don't specify any timeout Awaitility will wait for 10 seconds and then throw a [http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/ConditionTimeoutException.html ConditionTimeoutException] if the condition has not been fulfilled. The default poll interval and poll delay is 100 milliseconds. You can also specify the default values yourself using:
   
 {{{
   Awaitility.setDefaultTimeout(..)
@@ -187,7 +187,7 @@ Awaitility starts to check if the specified condition (the one you create using 
 Note that since Awaitility uses polling to verify that a condition matches it's not recommended to use it for precise performance testing. In these cases it's better to use an AOP framework such as AspectJ's compile-time weaving.
 
 = Condition Evaluation Listener =
-Awaitility 1.6.1 introduced the concept of <a href="http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionEvaluationListener.html">Condition Evaluation Listener</a>. This can be used to get information each time a condition has been evaluated by Awaitility. You can for example use this to get the intermediate values of a condition before it is fulfilled. It can also be used for logging purposes. For example:
+Awaitility 1.6.1 introduced the concept of <a href="http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/ConditionEvaluationListener.html">Condition Evaluation Listener</a>. This can be used to get information each time a condition has been evaluated by Awaitility. You can for example use this to get the intermediate values of a condition before it is fulfilled. It can also be used for logging purposes. For example:
 {{{
 with().
          conditionEvaluationListener(condition -> System.out.printf("%s (elapsed time %dms, remaining time %dms)\n", condition.getDescription(), condition.getElapsedTimeInMS(), condition.getRemainingTimeInMS())).
@@ -203,13 +203,13 @@ will print the following to the console:
     com.jayway.awaitility.AwaitilityJava8Test$CountDown reached its end value of (<0> or a value less than <0>) (elapsed time 610ms, remaining time 1390ms)
 }}}
 
-There's a built-in `ConditionEvaluationListener` for logging called <a href="http://awaitility.googlecode.com/svn/tags/1.6.2/apidocs/com/jayway/awaitility/core/ConditionEvaluationLogger.html">ConditionEvaluationLogger</a> that you can use like this:
+There's a built-in `ConditionEvaluationListener` for logging called <a href="http://awaitility.googlecode.com/svn/tags/1.6.3/apidocs/com/jayway/awaitility/core/ConditionEvaluationLogger.html">ConditionEvaluationLogger</a> that you can use like this:
 
 {{{
 with().conditionEvaluationListener(new ConditionEvaluationLogger()).await(). ...
 }}}
 
-Note that Awaitility 1.6.1 only support Hamcrest-based conditions but in 1.6.2 and above all condition types work.
+Note that Awaitility 1.6.1 only support Hamcrest-based conditions but in 1.6.3 and above all condition types work.
 
 = Important =
 Awaitility does nothing to ensure thread safety or thread synchronization! This is your responsibility! Make sure your code is correctly synchronized or that you are using thread safe data structures such as volatile fields or classes such as AtomicInteger and ConcurrentHashMap. 
