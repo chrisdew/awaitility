@@ -1,8 +1,6 @@
 = Installation = 
-== Maven users ==
-Add the following dependency to your pom.xml:
 
-==== Java DSL ====
+== Java DSL ==
 Maven:
 
 {{{
@@ -19,7 +17,7 @@ Gradle:
 compile 'com.jayway.awaitility:awaitility:1.6.3'
 }}}
 
-==== Scala DSL ====
+== Scala DSL ==
 Maven:
 {{{
 <dependency>
@@ -40,7 +38,7 @@ Gradle:
 compile 'com.jayway.awaitility:awaitility-scala:1.6.3'
 }}}
 
-==== Groovy DSL ====
+== Groovy DSL ==
 Maven:
 {{{
 <dependency>
