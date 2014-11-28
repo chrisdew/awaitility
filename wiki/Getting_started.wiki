@@ -3,6 +3,8 @@
 Add the following dependency to your pom.xml:
 
 ==== Java DSL ====
+Maven:
+
 {{{
 <dependency>
       <groupId>com.jayway.awaitility</groupId>
@@ -10,6 +12,11 @@ Add the following dependency to your pom.xml:
       <version>1.6.3</version>
       <scope>test</scope>
 </dependency>
+}}}
+
+Gradle:
+{{{
+compile 'com.jayway.awaitility:awaitility:1.6.3'
 }}}
 
 ==== Scala DSL ====
@@ -22,9 +29,15 @@ Maven:
       <scope>test</scope>
 </dependency>
 }}}
+
 SBT:
 {{{
 val awaitility-scala = "com.jayway.awaitility" % "awaitility-scala" % "1.6.3"
+}}}
+
+Gradle:
+{{{
+compile 'com.jayway.awaitility:awaitility-scala:1.6.3'
 }}}
 
 ==== Groovy DSL ====
@@ -43,6 +56,11 @@ Grapes:
 @Grapes(
     @Grab(group='com.jayway.awaitility', module='awaitility-groovy', version='1.6.3')
 ) 
+}}}
+
+Gradle:
+{{{
+compile 'com.jayway.awaitility:awaitility-groovy:1.6.3'
 }}}
  
 == Non-maven users ==
